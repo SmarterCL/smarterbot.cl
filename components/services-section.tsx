@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Smartphone, Clock, Wrench, Bot } from "lucide-react"
 
 export default function ServicesSection() {
+  const APP_URL = "https://app.smarterbot.cl"
   const handleContactClick = () => {
     window.open("https://wa.me/56979540471", "_blank")
   }
   const handleAppClick = () => {
-    window.open("http://app.smarterbot.cl", "_blank")
+    window.open(APP_URL, "_blank")
   }
 
   const services = [

@@ -58,7 +58,7 @@ El proyecto está preparado para Vercel. Un `git push` al branch principal dispa
 ## Contacto
 
 - WhatsApp directo: **[https://wa.me/56979540471](https://wa.me/56979540471)**
-- Solicitud de automatización: **[http://app.smarterbot.cl](http://app.smarterbot.cl)**
+- Solicitud de automatización: **[https://app.smarterbot.cl](https://app.smarterbot.cl)**
 - Equipo: SmarterBot Chile · `hola@smarterbot.cl`
 
 SmarterOS acompaña las operaciones diarias de tu negocio mientras tu equipo se concentra en vender.

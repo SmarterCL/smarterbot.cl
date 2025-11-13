@@ -7,7 +7,7 @@ import { Check, Star, Wrench, Clock, Bot, Smartphone, Calendar } from "lucide-re
 
 export default function PricingSection() {
   const handlePlanClick = () => {
-    window.open("http://app.smarterbot.cl", "_blank")
+    window.open("https://app.smarterbot.cl", "_blank")
   }
 
   const handleDemoClick = () => {

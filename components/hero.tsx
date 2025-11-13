@@ -16,7 +16,7 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen flex items-center">
+    <div id="inicio" className="relative min-h-screen flex items-center">
       {/* Floating papers background */}
       <div className="absolute inset-0 overflow-hidden">
         <FloatingPaper count={8} />
