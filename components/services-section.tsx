@@ -1,16 +1,16 @@
 "use client"
 
+import Link from "next/link"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { Calendar, Smartphone, Clock, Wrench, Bot } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+import { getAutomationDashboardUrl } from "@/lib/constants"
+
 export default function ServicesSection() {
-  const APP_URL = "https://app.smarterbot.cl"
+  const automationDashboardUrl = getAutomationDashboardUrl("services-main-cta")
   const handleContactClick = () => {
     window.open("https://wa.me/56979540471", "_blank")
-  }
-  const handleAppClick = () => {
-    window.open(APP_URL, "_blank")
   }
 
   const services = [
@@ -128,12 +128,10 @@ export default function ServicesSection() {
           <p className="text-gray-300 text-lg mb-6">
             Contanos qué necesitás. Te decimos si se puede hacer en 90 minutos por $35.000.
           </p>
-          <Button
-            size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-12 py-4 text-lg"
-            onClick={handleAppClick}
-          >
-            Automatizar mi tarea en 90 minutos, $35.000
+          <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-12 py-4 text-lg" asChild>
+            <Link href={automationDashboardUrl} target="_blank" rel="noopener noreferrer">
+              Automatizar mi tarea en 90 minutos, $35.000
+            </Link>
           </Button>
         </motion.div>
 

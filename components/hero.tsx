@@ -1,15 +1,16 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import { MessageCircle, Clock, CheckCircle } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
 import { FloatingPaper } from "@/components/floating-paper"
 import { RoboAnimation } from "@/components/robo-animation"
+import { getAutomationDashboardUrl } from "@/lib/constants"
 
 export default function Hero() {
-  const handleContactClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
-  }
+  const heroAutomationUrl = getAutomationDashboardUrl("hero-primary")
 
   const handleServicesClick = () => {
     document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" })
@@ -62,13 +63,11 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button
-                size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 text-lg py-6"
-                onClick={handleContactClick}
-              >
-                <MessageCircle className="mr-2 h-6 w-6" />
-                Automatizar mi tarea ahora
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 text-lg py-6" asChild>
+                <Link href={heroAutomationUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-6 w-6" />
+                  Automatizar mi tarea ahora
+                </Link>
               </Button>
               <Button
                 size="lg"

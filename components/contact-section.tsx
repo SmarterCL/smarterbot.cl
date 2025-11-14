@@ -1,12 +1,54 @@
 "use client"
 
+import { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
+import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle, Workflow } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
-import { MapPin, Mail, Phone, MessageCircle, Clock, CheckCircle } from "lucide-react"
+import { Switch } from "@/components/ui/switch"
+import { getAutomationDashboardUrl } from "@/lib/constants"
+
+type WorkflowStatus = {
+  id: string
+  name: string
+  flow: string
+  metric: string
+  active: boolean
+}
 
 export default function ContactSection() {
-  const handleWhatsAppClick = () => {
-    window.open("https://wa.me/56979540471", "_blank")
+  const [workflows, setWorkflows] = useState<WorkflowStatus[]>([
+    {
+      id: "workflow-whatsapp",
+      name: "WhatsApp Leads → CRM",
+      flow: "N8N #431 · 14 ejecuciones hoy",
+      metric: "Último disparo hace 2 min",
+      active: true,
+    },
+    {
+      id: "workflow-agenda",
+      name: "Agenda confirmaciones",
+      flow: "N8N #219 · Google Calendar",
+      metric: "Sincronizado hace 8 min",
+      active: true,
+    },
+    {
+      id: "workflow-reportes",
+      name: "Reporte diario a Sheets",
+      flow: "N8N #102 · Control inventario",
+      metric: "Último envío 09:00",
+      active: false,
+    },
+  ])
+
+  const automationPrimaryUrl = getAutomationDashboardUrl("contact-primary")
+  const automationDashboardUrl = getAutomationDashboardUrl("contact-dashboard-link")
+
+  const handleToggleWorkflow = (workflowId: string) => {
+    setWorkflows((prev) =>
+      prev.map((workflow) => (workflow.id === workflowId ? { ...workflow, active: !workflow.active } : workflow))
+    )
   }
 
   return (
@@ -93,14 +135,20 @@ export default function ContactSection() {
             </p>
 
             <div className="space-y-4 mb-6">
-              <Button
-                size="lg"
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg"
-                onClick={handleWhatsAppClick}
-              >
-                <MessageCircle className="mr-2 h-6 w-6" />
-                Automatizar mi tarea ahora
+              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg" asChild>
+                <Link href={automationPrimaryUrl} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-6 w-6" />
+                  Automatizar mi tarea ahora
+                </Link>
               </Button>
+            </div>
+
+            <div className="mb-6">
+              <AutomationDashboardPreview
+                workflows={workflows}
+                dashboardUrl={automationDashboardUrl}
+                onToggle={handleToggleWorkflow}
+              />
             </div>
 
             <div className="space-y-4 mb-6">
@@ -147,5 +195,60 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
+  )
+}
+
+function AutomationDashboardPreview({
+  workflows,
+  onToggle,
+  dashboardUrl,
+}: {
+  workflows: WorkflowStatus[]
+  onToggle: (workflowId: string) => void
+  dashboardUrl: string
+}) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-black/40 p-4">
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div>
+          <p className="text-white font-semibold flex items-center gap-2">
+            <Workflow className="w-4 h-4 text-green-400" />
+            Automatizaciones en SmarterOS
+          </p>
+          <p className="text-xs text-gray-400">Controla tus flujos de N8N desde el dashboard</p>
+        </div>
+        <Button variant="outline" size="sm" className="border-white/20 text-white hover:bg-white/10" asChild>
+          <Link href={dashboardUrl} target="_blank" rel="noopener noreferrer">
+            Ver dashboard
+          </Link>
+        </Button>
+      </div>
+
+      <div className="space-y-3">
+        {workflows.map((workflow) => (
+          <div
+            key={workflow.id}
+            className="flex items-center justify-between rounded-lg border border-white/5 bg-black/30 px-3 py-3"
+          >
+            <div>
+              <p className="text-sm font-semibold text-white">{workflow.name}</p>
+              <p className="text-xs text-gray-400">{workflow.flow}</p>
+              <p className="text-xs text-gray-500">{workflow.metric}</p>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className={`text-xs font-bold ${workflow.active ? "text-green-400" : "text-gray-400"}`}>
+                {workflow.active ? "ON" : "OFF"}
+              </span>
+              <Switch
+                checked={workflow.active}
+                onCheckedChange={() => onToggle(workflow.id)}
+                aria-label={`Cambiar estado de ${workflow.name}`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
