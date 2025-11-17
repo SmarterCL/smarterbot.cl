@@ -28,17 +28,19 @@ export default function Hero() {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-              <div className="inline-flex items-center px-4 py-2 bg-green-500/20 rounded-full border border-green-500/30 mb-6">
-                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
-                <span className="text-green-300 text-sm font-medium">90 minutos • $35.000 CLP</span>
+              <div className="inline-flex items-center px-4 py-2 bg-purple-500/20 rounded-full border border-purple-500/30 mb-6">
+                <CheckCircle className="w-4 h-4 text-purple-400 mr-2" />
+                <span className="text-purple-300 text-sm font-medium">🧠 Sistema Cognitivo • RUT Chileno • Shopify Ready</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Automatizo tu tarea
+                Plataforma Cognitiva
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-600">
                   {" "}
-                  en 90 minutos
+                  Multi-Tenant
                 </span>
+                <br />
+                <span className="text-2xl md:text-3xl lg:text-4xl text-gray-300">para PYMEs Chile</span>
               </h1>
             </motion.div>
 
@@ -48,12 +50,14 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <p className="text-gray-300 text-lg md:text-xl mb-4 leading-relaxed">
-                <strong className="text-white">$35.000 CLP.</strong> Conectamos tus herramientas, automatizamos tu
-                proceso.
+                <strong className="text-white">Tu vendedor digital inteligente.</strong> Arquitectura de 3 capas cognitivas:
+                <span className="text-purple-400"> Chatwoot</span> (inbox) +
+                <span className="text-blue-400"> Botpress</span> (AI agents) +
+                <span className="text-green-400"> n8n</span> (automation).
               </p>
               <p className="text-gray-400 text-base md:text-lg leading-relaxed">
-                Formularios que van a tu email, agendas que confirman por WhatsApp, planillas que se actualizan solas.{" "}
-                <strong className="text-white">Pagás una vez y listo.</strong>
+                Multi-tenant real, aislamiento por RUT, RAG per tenant, handoffs automáticos.{" "}
+                <strong className="text-white">WhatsApp, Email, Web, Instagram.</strong>
               </p>
             </motion.div>
 
@@ -63,10 +67,10 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8 text-lg py-6" asChild>
-                <Link href={heroAutomationUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 text-lg py-6" asChild>
+                <Link href="https://app.smarterbot.cl" target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="mr-2 h-6 w-6" />
-                  Automatizar mi tarea ahora
+                  Crear mi tenant ahora
                 </Link>
               </Button>
               <Button
@@ -85,21 +89,21 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-green-500/10 rounded-xl p-6 border border-green-500/20"
+              className="bg-purple-500/10 rounded-xl p-6 border border-purple-500/20"
             >
-              <h3 className="text-white font-bold text-lg mb-3">¿Qué incluye?</h3>
+              <h3 className="text-white font-bold text-lg mb-3">¿Por qué SmarterOS?</h3>
               <div className="grid md:grid-cols-3 gap-4 text-sm">
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  <span className="text-gray-300">Máximo 90 minutos</span>
+                  <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <span className="text-gray-300">Multi-agent AI (Botpress)</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  <span className="text-gray-300">Precio fijo $35.000</span>
+                  <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <span className="text-gray-300">RAG per tenant (pgvector)</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
-                  <span className="text-gray-300">Te explico cómo funciona</span>
+                  <CheckCircle className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <span className="text-gray-300">Shopify / Odoo integration</span>
                 </div>
               </div>
             </motion.div>
@@ -112,16 +116,16 @@ export default function Hero() {
               className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10"
             >
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-green-400">90min</div>
-                <div className="text-sm text-gray-400">Máximo</div>
+                <div className="text-2xl md:text-3xl font-bold text-purple-400">3 capas</div>
+                <div className="text-sm text-gray-400">Cognitivas</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-green-400">$35k</div>
-                <div className="text-sm text-gray-400">Precio fijo</div>
+                <div className="text-2xl md:text-3xl font-bold text-blue-400">Multi-tenant</div>
+                <div className="text-sm text-gray-400">Real</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-green-400">1 vez</div>
-                <div className="text-sm text-gray-400">Pagás</div>
+                <div className="text-2xl md:text-3xl font-bold text-green-400">RUT</div>
+                <div className="text-sm text-gray-400">Chileno</div>
               </div>
             </motion.div>
           </div>

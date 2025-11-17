@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
-import { Check, Star, Wrench, Clock, Bot, Smartphone, Calendar } from "lucide-react"
+import { Check, Star, Wrench, Clock, Bot, Crown, Rocket } from "lucide-react"
 
 export default function PricingSection() {
   const handlePlanClick = () => {
@@ -16,52 +16,55 @@ export default function PricingSection() {
 
   const services = [
     {
-      name: "Automatización por tarea",
-      subtitle: "Una conexión entre apps o procesos",
-      price: "$35.000",
+      name: "Tier 0: Sandbox",
+      subtitle: "Prueba gratis por 14 días",
+      price: "$0",
       period: "CLP",
       icon: Wrench,
       features: [
-        "Google Forms → Gmail → Sheets",
-        "Zapier o N8N",
-        "Implementación en 90 minutos",
-        "Resumen final del trabajo",
-        "Pago por transferencia en Chile",
+        "1 tenant (tu RUT)",
+        "Botpress sandbox local",
+        "n8n workflows básicos",
+        "Chatwoot inbox (100 mensajes/mes)",
+        "Documentación completa",
       ],
       popular: false,
-      example: "ej: Google Forms → Gmail → Sheets",
+      example: "Perfecto para testing",
     },
     {
-      name: "Hora técnica programador",
-      subtitle: "Te ayudamos a crear, revisar o escalar",
-      price: "$35.000",
-      period: "CLP / hora",
+      name: "Tier 1: Startup",
+      subtitle: "Para PYMEs con hasta 1,000 conversaciones/mes",
+      price: "$99.000",
+      period: "CLP / mes",
       icon: Clock,
       features: [
-        "Automatizaciones con N8N o Zapier",
-        "Revisión de procesos existentes",
-        "Escalamiento de automatizaciones",
-        "Soporte técnico directo",
-        "Consultoría especializada",
+        "Multi-agent AI (3 agentes)",
+        "RAG per tenant (1GB knowledge base)",
+        "Shopify / Odoo integration",
+        "Chatwoot omnicanal (WhatsApp, Email, Web)",
+        "n8n workflows ilimitados",
+        "Soporte prioritario",
       ],
       popular: true,
-      example: "Perfecto si ya usas estas herramientas",
+      example: "Recomendado para eCommerce",
     },
     {
-      name: "Asistente digital personalizado",
-      subtitle: "Atención vía WhatsApp o correo",
-      price: "$60.000",
-      period: "CLP / semana",
+      name: "Tier 2: Growth",
+      subtitle: "Para empresas con alto volumen",
+      price: "$299.000",
+      period: "CLP / mes",
       icon: Bot,
       features: [
-        "Atención por WhatsApp",
-        "Seguimiento de tareas",
-        "Gestión de correos",
-        "Tareas administrativas simples",
-        "Respuesta en horario laboral",
+        "Multi-agent AI ilimitado",
+        "RAG per tenant (10GB)",
+        "Azure Container Apps (n8n dedicado)",
+        "Postgres dedicado",
+        "SSO con Azure AD",
+        "Audit logs completos (Redpanda)",
+        "SLA 99.9%",
       ],
       popular: false,
-      example: "Secretaria virtual digital",
+      example: "Enterprise ready",
     },
   ]
 
@@ -74,9 +77,9 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Precios claros</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Pricing Multi-Tenant</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Desde $35.000 CLP (1 hora y media). Planes por semana o por mes con seguimiento.
+            Empieza gratis. Escala cuando lo necesites. Pricing en CLP, sin sorpresas.
           </p>
         </motion.div>
 
@@ -149,26 +152,26 @@ export default function PricingSection() {
         >
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-              <Calendar className="w-6 h-6 text-blue-400 mr-2" />
-              Calendario + WhatsApp sin bot
+              <Crown className="w-6 h-6 text-yellow-400 mr-2" />
+              Enterprise Custom
             </h3>
             <p className="text-gray-400 mb-4">
-              Agenda visible, formulario simple y WhatsApp manual de respuesta automática
+              Botpress dedicado, Azure private, SSO, audit completo, SLA 99.95%
             </p>
-            <div className="text-2xl font-bold text-white mb-2">$35.000 CLP</div>
-            <p className="text-purple-400 text-sm">/ implementación</p>
+            <div className="text-2xl font-bold text-white mb-2">Custom pricing</div>
+            <p className="text-purple-400 text-sm">Contáctanos para cotización</p>
           </div>
 
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-              <Smartphone className="w-6 h-6 text-green-400 mr-2" />
-              App para Android con AppSheet
+              <Rocket className="w-6 h-6 text-blue-400 mr-2" />
+              Migración desde otra plataforma
             </h3>
             <p className="text-gray-400 mb-4">
-              Apps internas para gestión, inventario, clientes. APK directo sin Play Store
+              Migramos tus conversaciones, datos y workflows desde Intercom, Zendesk, etc.
             </p>
-            <div className="text-2xl font-bold text-white mb-2">desde $45.000</div>
-            <p className="text-purple-400 text-sm">CLP</p>
+            <div className="text-2xl font-bold text-white mb-2">$150.000</div>
+            <p className="text-purple-400 text-sm">CLP (una vez)</p>
           </div>
         </motion.div>
 
@@ -179,31 +182,31 @@ export default function PricingSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="text-center bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
         >
-          <h3 className="text-2xl font-bold text-white mb-6">¿Cómo lo hacemos?</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">¿Cómo funciona el onboarding?</h3>
           <div className="grid md:grid-cols-4 gap-6 text-left">
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-purple-400 font-bold">1</span>
               </div>
-              <p className="text-gray-300 text-sm">Nos contás qué querés automatizar o resolver</p>
+              <p className="text-gray-300 text-sm">Crea tu cuenta con RUT chileno</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-purple-400 font-bold">2</span>
               </div>
-              <p className="text-gray-300 text-sm">Te proponemos la mejor opción: Zapier, N8N o Claude</p>
+              <p className="text-gray-300 text-sm">Configura tu workspace (Botpress + Chatwoot)</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-purple-400 font-bold">3</span>
               </div>
-              <p className="text-gray-300 text-sm">Lo hacemos en máximo 90 minutos (si es simple)</p>
+              <p className="text-gray-300 text-sm">Conecta Shopify/Odoo (opcional)</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <span className="text-purple-400 font-bold">4</span>
               </div>
-              <p className="text-gray-300 text-sm">Te entregamos todo funcionando</p>
+              <p className="text-gray-300 text-sm">Activa tu dominio rut.smarterbot.cl</p>
             </div>
           </div>
 
