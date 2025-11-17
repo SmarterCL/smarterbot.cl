@@ -8,25 +8,21 @@ export default function ComparisonSection() {
     {
       name: "Intercom",
       logo: "💬",
-      pricing: "Desde $79 USD/mes",
       target: "Global, SaaS",
     },
     {
       name: "Zendesk",
       logo: "🎫",
-      pricing: "Desde $55 USD/mes",
       target: "Enterprise",
     },
     {
       name: "WhatsApp Business API",
       logo: "📱",
-      pricing: "Por mensaje",
       target: "Todos",
     },
     {
       name: "SmarterOS",
       logo: "🧠",
-      pricing: "Desde $99.000 CLP/mes",
       target: "PYMEs Chile",
       highlight: true,
     },
@@ -82,13 +78,7 @@ export default function ComparisonSection() {
       whatsapp: false,
       smarteros: true,
     },
-    {
-      name: "Pricing localizado en CLP",
-      intercom: false,
-      zendesk: false,
-      whatsapp: false,
-      smarteros: true,
-    },
+
     {
       name: "Soporte en español (horario Chile)",
       intercom: false,
@@ -144,8 +134,7 @@ export default function ComparisonSection() {
               )}
               <div className="text-4xl text-center mb-3">{competitor.logo}</div>
               <h3 className="text-white font-bold text-lg text-center mb-2">{competitor.name}</h3>
-              <p className="text-gray-400 text-sm text-center mb-1">{competitor.pricing}</p>
-              <p className="text-gray-500 text-xs text-center">{competitor.target}</p>
+              <p className="text-gray-400 text-sm text-center">{competitor.target}</p>
             </motion.div>
           ))}
         </div>
@@ -219,7 +208,7 @@ export default function ComparisonSection() {
             <Building2 className="w-12 h-12 text-purple-400 mb-4" />
             <h3 className="text-white font-bold text-lg mb-2">Pensado para Chile</h3>
             <p className="text-gray-400 text-sm">
-              Integración nativa con RUT, pricing en CLP, hosting en Chile, soporte en español en horario local.
+              Integración nativa con RUT, hosting en Chile, soporte en español en horario local.
             </p>
           </div>
 

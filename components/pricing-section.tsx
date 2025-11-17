@@ -17,9 +17,7 @@ export default function PricingSection() {
   const services = [
     {
       name: "Tier 0: Sandbox",
-      subtitle: "Prueba gratis por 14 días",
-      price: "$0",
-      period: "CLP",
+      subtitle: "Ambiente de desarrollo y pruebas",
       icon: Wrench,
       features: [
         "1 tenant (tu RUT)",
@@ -34,8 +32,6 @@ export default function PricingSection() {
     {
       name: "Tier 1: Startup",
       subtitle: "Para PYMEs con hasta 1,000 conversaciones/mes",
-      price: "$99.000",
-      period: "CLP / mes",
       icon: Clock,
       features: [
         "Multi-agent AI (3 agentes)",
@@ -51,8 +47,6 @@ export default function PricingSection() {
     {
       name: "Tier 2: Growth",
       subtitle: "Para empresas con alto volumen",
-      price: "$299.000",
-      period: "CLP / mes",
       icon: Bot,
       features: [
         "Multi-agent AI ilimitado",
@@ -77,9 +71,9 @@ export default function PricingSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Pricing Multi-Tenant</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Planes Multi-Tenant</h2>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
-            Empieza gratis. Escala cuando lo necesites. Pricing en CLP, sin sorpresas.
+            Empieza con el sandbox. Escala cuando lo necesites. Soluciones adaptadas a tu negocio.
           </p>
         </motion.div>
 
@@ -109,14 +103,7 @@ export default function PricingSection() {
                   </div>
                   <CardTitle className="text-white text-xl mb-1">{service.name}</CardTitle>
                   <p className="text-gray-400 text-sm">{service.subtitle}</p>
-                  <p className="text-purple-400 text-xs italic">{service.example}</p>
-
-                  <div className="mt-4">
-                    <div className="flex items-baseline justify-center">
-                      <span className="text-3xl md:text-4xl font-bold text-white">{service.price}</span>
-                      <span className="text-gray-400 ml-1 text-sm">{service.period}</span>
-                    </div>
-                  </div>
+                  <p className="text-purple-400 text-xs italic mt-2">{service.example}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
@@ -158,8 +145,7 @@ export default function PricingSection() {
             <p className="text-gray-400 mb-4">
               Botpress dedicado, Azure private, SSO, audit completo, SLA 99.95%
             </p>
-            <div className="text-2xl font-bold text-white mb-2">Custom pricing</div>
-            <p className="text-purple-400 text-sm">Contáctanos para cotización</p>
+            <p className="text-purple-400 text-sm">Contáctanos para más información</p>
           </div>
 
           <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
@@ -170,8 +156,7 @@ export default function PricingSection() {
             <p className="text-gray-400 mb-4">
               Migramos tus conversaciones, datos y workflows desde Intercom, Zendesk, etc.
             </p>
-            <div className="text-2xl font-bold text-white mb-2">$150.000</div>
-            <p className="text-purple-400 text-sm">CLP (una vez)</p>
+            <p className="text-purple-400 text-sm">Servicio de migración disponible</p>
           </div>
         </motion.div>
 

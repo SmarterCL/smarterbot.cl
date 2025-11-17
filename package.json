@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "tsc -b",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "clean": "rm -rf dist .tsbuildinfo"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

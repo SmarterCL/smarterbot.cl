@@ -1,22 +1,23 @@
 # SmarterOS
 
-**SmarterOS** es la experiencia digital de SmarterBot Chile para ofrecer automatizaciones listas en 90 minutos y servicios operativos que combinan WhatsApp, Zapier/N8N y AppSheet. El sitio comunica la propuesta comercial (precio fijo $35.000 CLP por tarea) y los canales de contacto para que clientes agenden su sprint de implementación.
+**SmarterOS** es una plataforma cognitiva multi-tenant para PYMEs chilenas que combina automatización inteligente, agentes conversacionales y capacidades RAG. El sitio comunica la propuesta tecnológica y los canales de contacto para empresas que buscan implementar soluciones de IA escalables.
 
 ## Propuesta de valor
 
-- Automatizamos tareas puntuales en máximo 90 minutos por $35.000 CLP.
-- Conectamos formularios, Gmail, Sheets, agendas y disparadores de WhatsApp para que el flujo funcione sin intervención manual.
-- Entregamos apps internas en AppSheet (inventario, clientes, pedidos) listas para instalar en Android sin pasar por Play Store.
-- Ofrecemos asistencia humana por WhatsApp, cobranzas automatizadas y soporte por hora para mantener flujos Zapier/N8N/Make.
-- Servicio pensado para PYMEs chilenas que necesitan resultados rápidos, sin contratos ni integraciones complejas.
+- Plataforma multi-tenant con aislamiento completo por empresa (basado en RUT chileno)
+- Agentes conversacionales especializados con handoffs automáticos (Botpress + RAG)
+- Automatización de workflows empresariales (n8n + MCP + Vault)
+- Integración nativa con Shopify, Odoo, WhatsApp Business, Email, Web
+- Inbox omnicanal centralizado (Chatwoot)
+- Servicio pensado para PYMEs chilenas que necesitan escalabilidad sin complejidad.
 
 ## Casos de uso destacados
 
-1. **Conectar herramientas** · Google Forms → Gmail → Sheets para captura y envío automático de la información.
-2. **Agenda con confirmación en WhatsApp** · Link de agenda + seguimiento manual sin bots impersonales.
-3. **App interna en AppSheet** · Control de inventario, clientes o pedidos con despliegue directo en teléfonos Android.
-4. **Asistente virtual** · Secretaria digital que responde consultas y coordina agendas por WhatsApp o correo.
-5. **Soporte técnico por hora** · Ajustes y monitoreo de automatizaciones existentes a $35.000 CLP/h.
+1. **Vendedor digital automatizado** · Agente AI que consulta catálogo, genera carritos y procesa ventas vía WhatsApp
+2. **Soporte multi-canal con handoffs** · Triage inteligente que deriva a agentes especializados (billing, soporte, OCR)
+3. **RAG sobre documentos empresariales** · Knowledge base per tenant con semantic search sobre facturas, políticas, manuales
+4. **OCR + clasificación LLM** · Procesamiento automático de documentos PDF con extracción y análisis inteligente
+5. **Integración Shopify/Odoo** · Sincronización bidireccional de productos, inventario, pedidos y clientes
 
 ## Beneficios clave
 
@@ -27,10 +28,11 @@
 
 ## Cómo funciona
 
-1. Nos cuentas la tarea a automatizar por WhatsApp (`https://wa.me/56979540471`).
-2. Confirmamos si encaja en el formato 90 minutos / $35.000 CLP.
-3. Construimos el flujo conectando las herramientas necesarias (Zapier, N8N, Google Workspace, AppSheet, OpenAI/Claude).
-4. Entregamos, documentamos y pagas una sola vez.
+1. Contactas al equipo por WhatsApp (`https://wa.me/56979540471`) para una demo de 15 minutos
+2. Configuramos tu workspace multi-tenant (RUT → tenant_id → dominio rut.smarterbot.cl)
+3. Desplegamos tu stack: Botpress (agentes), Chatwoot (inbox), n8n (workflows), MCP (seguridad)
+4. Conectamos tus sistemas existentes (Shopify, Odoo, WhatsApp Business, Email)
+5. Entrenamos tus agentes con tu knowledge base específica (RAG)
 
 ## Stack del sitio
 
