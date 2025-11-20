@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Calendar, Smartphone, Clock, Wrench, Bot } from "lucide-react"
+import { Calendar, Smartphone, Clock, Wrench, Bot, Database } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { getAutomationDashboardUrl } from "@/lib/constants"
@@ -57,6 +57,24 @@ export default function ServicesSection() {
       example: "Ejemplo: Revisar tu automatización actual",
       price: "$35.000",
       time: "por hora",
+      popular: false,
+    },
+    {
+      icon: Database,
+      title: "Actualización de ERP Odoo",
+      description: "Múltiples tareas, implementación y reconfiguración en VPS en prueba para luego aplicar en caliente sobre versión 19.",
+      example: "Ejemplo: Migración y testing en ambiente de pruebas",
+      price: "$45.000",
+      time: "3 horas + 1 extra",
+      popular: false,
+    },
+    {
+      icon: Smartphone,
+      title: "App para Android con AppSheet",
+      description: "Apps internas para gestión, inventario, clientes. APK directo sin Play Store.",
+      example: "Ejemplo: App de inventario o gestión de clientes",
+      price: "desde $45.000",
+      time: "2-4 horas",
       popular: false,
     },
   ]
