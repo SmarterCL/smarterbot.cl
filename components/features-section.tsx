@@ -13,12 +13,6 @@ export default function FeaturesSection() {
       price: "desde $35.000 CLP",
     },
     {
-      icon: Smartphone,
-      title: "App para Android con AppSheet",
-      description: "Apps internas para gestión, inventario, clientes o pedidos. APK directo sin Play Store",
-      price: "desde $45.000 CLP",
-    },
-    {
       icon: Calendar,
       title: "Calendario + WhatsApp (sin bot)",
       description: "Sistema de agenda desde link con confirmación por WhatsApp con atención real",
@@ -91,9 +85,6 @@ export default function FeaturesSection() {
               </p>
               <p className="flex items-center">
                 <span className="text-green-400 mr-2">✅</span> Google Calendar, Sheets, Gmail
-              </p>
-              <p className="flex items-center">
-                <span className="text-green-400 mr-2">✅</span> AppSheet para apps móviles internas
               </p>
             </div>
             <div className="space-y-2">

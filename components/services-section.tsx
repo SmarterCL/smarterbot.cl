@@ -68,15 +68,6 @@ export default function ServicesSection() {
       time: "3 horas + 1 extra",
       popular: false,
     },
-    {
-      icon: Smartphone,
-      title: "App para Android con AppSheet",
-      description: "Apps internas para gestión, inventario, clientes. APK directo sin Play Store.",
-      example: "Ejemplo: App de inventario o gestión de clientes",
-      price: "desde $45.000",
-      time: "2-4 horas",
-      popular: false,
-    },
   ]
 
   return (
