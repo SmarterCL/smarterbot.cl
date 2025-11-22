@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Clock, CreditCard, Workflow, MessageSquare, Zap, Shield } from "lucide-react"
+import { Clock, DollarSign, Workflow, MessageSquare, Zap, Shield } from "lucide-react"
 
 export default function BenefitsSection() {
   const benefits = [
@@ -10,36 +10,42 @@ export default function BenefitsSection() {
       title: "Disponibilidad 24/7",
       description: "Respuesta en segundos, todos los días del año. Tu negocio nunca duerme.",
       color: "text-blue-400",
+      highlight: "Tiempos de respuesta en segundos",
     },
     {
-      icon: CreditCard,
+      icon: DollarSign,
       title: "Cobros Automáticos",
-      description: "Cobros automáticos con tarjeta predeterminada. Simplifica el proceso de pago.",
+      description: "Flujos personalizables para ventas, reservas o pedidos según tus necesidades.",
       color: "text-green-400",
-    },
-    {
-      icon: Workflow,
-      title: "Flujos Personalizados",
-      description: "Flujos personalizados para ventas, pedidos o reservas según tus necesidades.",
-      color: "text-purple-400",
+      highlight: "Procesos de pago simplificados",
     },
     {
       icon: MessageSquare,
-      title: "Compatible con WhatsApp",
-      description: "Compatible con WhatsApp Business, web y app. Integración perfecta.",
+      title: "Compatible con WhatsApp Business",
+      description: "Compatible con WhatsApp Business (web y app). Integración perfecta con APIs oficiales.",
       color: "text-emerald-400",
+      highlight: "Soporte web, app y API oficial",
     },
     {
       icon: Zap,
       title: "Implementación Rápida",
       description: "Listo en menos de 1 día. Comienza a automatizar tu negocio de inmediato.",
       color: "text-yellow-400",
+      highlight: "La mayoría operativo en horas",
+    },
+    {
+      icon: Workflow,
+      title: "Flujos Personalizados",
+      description: "Workflows empresariales adaptados a tu negocio con n8n, MCP y Vault.",
+      color: "text-purple-400",
+      highlight: "Automatización a tu medida",
     },
     {
       icon: Shield,
       title: "Seguridad Garantizada",
       description: "Tus datos y los de tus clientes siempre protegidos con los más altos estándares.",
       color: "text-red-400",
+      highlight: "Foco en seguridad de datos",
     },
   ]
 
@@ -74,7 +80,8 @@ export default function BenefitsSection() {
                   </div>
                   <div>
                     <h3 className="text-white text-lg font-semibold mb-2">{benefit.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-2">{benefit.description}</p>
+                    <p className={`text-sm ${benefit.color} font-medium`}>{benefit.highlight}</p>
                   </div>
                 </div>
               </div>
