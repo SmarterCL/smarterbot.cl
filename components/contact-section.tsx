@@ -68,17 +68,31 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          {/* Left Column - Map */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+          {/* Left Column - Map + Info (info below map) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="flex flex-col h-full"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">Información de contacto</h3>
+            {/* Interactive Map */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8234567890123!2d-70.6891234567890!3d-33.4567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a1234567890%3A0x1234567890abcdef!2sConde%20del%20Maule%204364%2C%20Estaci%C3%B3n%20Central%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1234567890123!5m2!1ses!2scl"
+                width="100%"
+                height="360"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[360px]"
+              />
+            </div>
 
-            <div className="space-y-4 mb-6">
+            {/* Contact Info below map */}
+            <div className="space-y-4 mt-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">Información de contacto</h3>
               <div className="flex items-start space-x-4">
                 <MapPin className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
                 <div>
@@ -87,7 +101,6 @@ export default function ContactSection() {
                   <p className="text-gray-400">Depto #26, Santiago, Chile</p>
                 </div>
               </div>
-
               <div className="flex items-center space-x-4">
                 <Mail className="w-6 h-6 text-green-500 flex-shrink-0" />
                 <div>
@@ -95,7 +108,6 @@ export default function ContactSection() {
                   <p className="text-gray-400">smarterbotcl@gmail.com</p>
                 </div>
               </div>
-
               <div className="flex items-center space-x-4">
                 <Phone className="w-6 h-6 text-green-500 flex-shrink-0" />
                 <div>
@@ -104,28 +116,14 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-
-            {/* Interactive Map */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8234567890123!2d-70.6891234567890!3d-33.4567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a1234567890%3A0x1234567890abcdef!2sConde%20del%20Maule%204364%2C%20Estaci%C3%B3n%20Central%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2scl!4v1234567890123!5m2!1ses!2scl"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-[300px]"
-              />
-            </div>
           </motion.div>
 
-          {/* Right Column - Contact Form */}
+          {/* Right Column - Contact Form (full height) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10 h-full"
+            className="bg-white/5 backdrop-blur-sm rounded-lg p-6 md:p-8 border border-white/10 h-full flex flex-col"
           >
             <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
               Automatizar mi tarea en 90 minutos, $35.000
@@ -134,14 +132,8 @@ export default function ContactSection() {
               Contanos qué querés automatizar. Te decimos si se puede hacer y lo hacemos.
             </p>
 
-            <div className="space-y-4 mb-6">
-              <Button size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white py-4 text-lg" asChild>
-                <Link href={automationPrimaryUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-6 w-6" />
-                  Automatizar mi tarea ahora
-                </Link>
-              </Button>
-            </div>
+            {/* Contact Form → app.smarterbot.cl/api/contact + equal height content */}
+            <ContactForm />
 
             <div className="mb-6">
               <AutomationDashboardPreview
@@ -195,6 +187,91 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
+  )
+}
+
+function ContactForm() {
+  const [loading, setLoading] = useState(false)
+  const [ok, setOk] = useState<null | boolean>(null)
+  const [error, setError] = useState<string | null>(null)
+
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setOk(null)
+    setError(null)
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+      phone: formData.get("phone") || null,
+      source: "smarterbot.cl",
+    }
+    try {
+      const res = await fetch("https://app.smarterbot.cl/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      setOk(res.ok)
+      if (!res.ok) {
+        const t = await res.text()
+        setError(t || "Error al enviar el formulario")
+      } else {
+        form.reset()
+      }
+    } catch (err: any) {
+      setOk(false)
+      setError(err?.message || "Error de red")
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="space-y-4 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          name="name"
+          required
+          placeholder="Tu nombre"
+          className="w-full rounded-md bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600"
+        />
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="Tu email"
+          className="w-full rounded-md bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600"
+        />
+      </div>
+      <input
+        name="phone"
+        placeholder="WhatsApp (opcional)"
+        className="w-full rounded-md bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600"
+      />
+      <textarea
+        name="message"
+        required
+        placeholder="Contanos qué querés automatizar"
+        rows={4}
+        className="w-full rounded-md bg-black/40 border border-white/10 px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-600"
+      />
+      <div className="flex gap-3">
+        <Button size="lg" disabled={loading} className="bg-green-600 hover:bg-green-700 text-white">
+          {loading ? "Enviando…" : "Enviar"}
+        </Button>
+        <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10" asChild>
+          <Link href={getAutomationDashboardUrl("contact-whatsapp-cta")} target="_blank" rel="noopener noreferrer">
+            <MessageCircle className="mr-2 h-5 w-5" /> WhatsApp
+          </Link>
+        </Button>
+      </div>
+      {ok === true && <p className="text-green-400 text-sm">Gracias. Te escribimos en breve.</p>}
+      {ok === false && <p className="text-red-400 text-sm">{error || "No se pudo enviar."}</p>}
+    </form>
   )
 }
 
