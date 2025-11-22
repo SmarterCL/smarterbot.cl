@@ -83,7 +83,7 @@ export default function HowItWorksSection() {
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-3">{step.description}</p>
                 
-                <div className={`text-xs ${step.color} font-mono bg-black/30 px-2 py-1 rounded`}>
+                <div className={`text-sm ${step.color} font-mono bg-black/30 px-2 py-1 rounded`}>
                   {step.detail}
                 </div>
               </div>

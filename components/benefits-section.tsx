@@ -81,7 +81,7 @@ export default function BenefitsSection() {
                   <div>
                     <h3 className="text-white text-lg font-semibold mb-2">{benefit.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-2">{benefit.description}</p>
-                    <p className={`text-xs ${benefit.color} font-medium`}>{benefit.highlight}</p>
+                    <p className={`text-sm ${benefit.color} font-medium`}>{benefit.highlight}</p>
                   </div>
                 </div>
               </div>
