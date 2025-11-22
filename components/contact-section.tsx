@@ -132,7 +132,7 @@ export default function ContactSection() {
               Contanos qué querés automatizar. Te decimos si se puede hacer y lo hacemos.
             </p>
 
-            {/* Contact Form → app.smarterbot.cl/api/contact + equal height content */}
+            {/* Contact Form → api.smarterbot.cl/contact (FastAPI) + equal height content */}
             <ContactForm />
 
             <div className="mb-6">
@@ -210,7 +210,7 @@ function ContactForm() {
       source: "smarterbot.cl",
     }
     try {
-      const res = await fetch("https://app.smarterbot.cl/api/contact", {
+      const res = await fetch("https://api.smarterbot.cl/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
