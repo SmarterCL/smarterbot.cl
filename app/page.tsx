@@ -4,7 +4,10 @@ import { SparklesCore } from "@/components/sparkles"
 import ArchitectureSection from "@/components/architecture-section"
 import ComparisonSection from "@/components/comparison-section"
 import ServicesSection from "@/components/services-section"
+import UseCasesSection from "@/components/use-cases-section"
 import FeaturesSection from "@/components/features-section"
+import BenefitsSection from "@/components/benefits-section"
+import HowItWorksSection from "@/components/how-it-works-section"
 import TestimonialsSection from "@/components/testimonials-section"
 import PricingSection from "@/components/pricing-section"
 import ContactSection from "@/components/contact-section"
@@ -31,6 +34,9 @@ export default function Home() {
         <Navbar />
         <Hero />
         <ArchitectureSection />
+        <UseCasesSection />
+        <BenefitsSection />
+        <HowItWorksSection />
         <ComparisonSection />
         <ServicesSection />
         <FeaturesSection />
